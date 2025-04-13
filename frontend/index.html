@@ -1,0 +1,56 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traffic Visualization</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        #info { 
+            position: absolute; 
+            top: 10px; 
+            width: 100%; 
+            text-align: center; 
+            color: white; 
+            font-family: Arial, sans-serif;
+            pointer-events: none;
+        }
+        #controls {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.7);
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+        }
+        #stats {
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="info">Global Traffic Visualization</div>
+    <div id="controls">
+        <button id="pauseBtn">Pause</button>
+        <button id="resetBtn">Reset View</button>
+        <div>Speed: <input type="range" id="speedControl" min="1" max="10" value="5"></div>
+    </div>
+    <div id="stats">
+        <h3>Traffic Statistics</h3>
+        <p>Total Packages: <span id="totalCount">0</span></p>
+        <p>Suspicious Packages: <span id="suspiciousCount">0</span></p>
+        <p>Top Locations:</p>
+        <ul id="topLocations"></ul>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
